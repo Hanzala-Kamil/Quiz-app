@@ -1,7 +1,14 @@
+import { NextApiRequest, NextApiResponse } from 'next'; // Import Next.js types
 import { connectToDatabase } from "@/lib/utils"; // Ensure you have this function defined to connect to your DB
 import { User } from "@/models/userModel"; // Ensure this is the correct path
 
-export default async function handler(req: { method: string; body: any; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: any[]): any; new(): any; }; }; }) {
+interface UserType {
+    name: string; // Adjust based on your user schema
+    email: string; // Adjust based on your user schema
+    // Add other fields based on your User model
+}
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     await connectToDatabase();
 
     if (req.method === 'GET') {
@@ -10,10 +17,12 @@ export default async function handler(req: { method: string; body: any; }, res: 
     }
 
     if (req.method === 'POST') {
-        const newUser = new User(req.body);
-        await newUser.save();
-        return res.status(201).json(newUser);
+        const newUser: UserType = req.body; // Type the incoming user data
+        const createdUser = new User(newUser);
+        await createdUser.save();
+        return res.status(201).json(createdUser);
     }
 
+    // Method Not Allowed
     return res.status(405).json({ message: 'Method not allowed' });
 }
