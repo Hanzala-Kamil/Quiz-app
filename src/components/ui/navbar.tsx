@@ -1,10 +1,11 @@
 "use client"; // Add this line at the top
 
+import { Props } from "next/dist/client/script";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-interface Props {}
+// interface Props {}
 
 const Navbar: React.FC<Props> = () => {
   const [isOpen, setIsOpen] = useState(false);

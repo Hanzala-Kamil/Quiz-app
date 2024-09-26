@@ -3,9 +3,9 @@
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import credentials from "next-auth/providers/credentials";
+// import credentials from "next-auth/providers/credentials";
 import { loginCredential } from "@/actions/login";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 const LoginForm = () => {

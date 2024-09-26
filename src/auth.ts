@@ -69,7 +69,7 @@
 //   // },
 // });
 
-import NextAuth, { AuthError, CredentialsSignin } from "next-auth";
+import NextAuth, {CredentialsSignin } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";

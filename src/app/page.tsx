@@ -1,13 +1,13 @@
-import { auth } from "@/auth";
-import Image from "next/image";
-import {decode,encode} from "next-auth/jwt"
-import { cookies } from "next/headers";
+// import { auth } from "@/auth";
+// import Image from "next/image";
+// import {decode,encode} from "next-auth/jwt"
+// import { cookies } from "next/headers";
 import Navbar from "@/components/ui/navbar";
 
 export default async function Home() {
 
-  const session = await auth()
-  const user = session?.user;
+  // const session = await auth()
+  // const user = session?.user;
   // console.log('Home -> user' , user)
 
   // docode the cookie token
